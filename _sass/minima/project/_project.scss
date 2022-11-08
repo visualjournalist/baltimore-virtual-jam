@@ -23,6 +23,10 @@
 			@media only screen and (min-width: 420px) {
 				word-spacing: 20px;
 			}
+			@media only screen and (min-width: $media__medium-large) {
+				font-size: 24px;
+				word-spacing: 30px;
+			}
 		}
 	}
 
@@ -367,6 +371,40 @@
 			@media only screen and (min-width: $media__large) {
 				margin-right: 0;
 			}
+		}
+	}
+
+	.vj__footer-navigation__shell {
+		background-color: #FFF;
+		box-shadow: 0 0 10px rgba(20,20,20,.4);
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+
+		a {
+			border-right:1px solid #CCC;
+			color: #888;
+			display: inline-block;
+			font-size: 14px;
+			padding: 40px 20px 20px 20px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			width: 33.5%;
+
+			&:last-of-type {
+				border-right: none;
+				width: 33%;
+			}
+			&.selected {
+				background-color: #F1F1F1;
+				border-top: 1px solid #FFF;
+				color: #222;
+			}
+		}
+
+		@media only screen and (min-width: $media__medium-large) {
+			display: none;
 		}
 	}
 

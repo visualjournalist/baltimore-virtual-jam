@@ -4,6 +4,16 @@
 ### To do list ###
 
 * Embed current clicked video
+* Fix fonts
+* Accordion nav for tune list (and count the number of times a tune was played)
+* Fall back link for when embedding isn't allowed
+* Add Bookmark tab to footer?
+* Add "about"
+
+
+### DONE ###
+* Footer navigation for mobile.
+
 
 
 
@@ -21,6 +31,7 @@
 * About the tune link
 * Show other tunes played at this jam
 * Bookmark your tunes
+
 
 
 ### How do you find the tune? ###

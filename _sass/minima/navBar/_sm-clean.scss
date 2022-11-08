@@ -173,7 +173,7 @@
     border-radius: 0;
   }
   .sm-clean a, .sm-clean a:hover, .sm-clean a:focus, .sm-clean a:active, .sm-clean a.highlighted {
-    padding: 24px 12px 25px 12px; //17px 12px;//12px 12px;
+    padding: 24px 25px 25px 25px; //17px 12px;//12px 12px;
     color: $color__vj-gray-light;
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
@@ -182,8 +182,8 @@
     border-radius: 0 !important;
   }
   .sm-clean a:hover, .sm-clean a:focus, .sm-clean a:active, .sm-clean a.highlighted {
-    background-color: #900;
-    color: #FFF;// orange;
+    background-color: $color__vj-gray-lightest;//#900;
+    color: #444;// orange;
   }
   .sm-clean a.current {
     color: $color__vj-blue-light;

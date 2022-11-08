@@ -1,3 +1,5 @@
+var current = "tunes";
+
 var debugMode = true;
 // Basic function to replace console.log() statements so they can all be disabled as needed;
 function logger(logString){
@@ -70,7 +72,11 @@ $(document).ready(function(){
 		if (chords[trackTitle]){
 			console.log("chords!")
 			console.log(chords[trackTitle].chords);
-			$("#summary").html(chords[trackTitle].chords)
+
+			var chordsPretty = chords[trackTitle].chords;
+			chordsPretty = chordsPretty.replaceAll("|", "<span style='color: #CCC;'>|</span>")
+
+			$("#summary").html(chordsPretty)
 			$("#summary").addClass("chords")
 		} else {
 			console.log('no chords')
@@ -80,6 +86,12 @@ $(document).ready(function(){
 		$("a.tune").removeClass("selected");
 		$(this).addClass("selected");
 
+
+		$(".vj__featured-box__column-right").addClass("hide");
+		$(".vj__featured-box").removeClass("hide");
+		$(".vj__nav-link.selected").removeClass("selected");
+		$("#navVideo").addClass("selected");
+
 		return false;
 	})
 
@@ -87,6 +99,33 @@ $(document).ready(function(){
 		$(".vj__featured-box__column-right").toggleClass("hide");
 		$(".vj__featured-box").toggleClass("hide");
 	})
+
+	$(".vj__navbar__key").click(function(){
+
+		//return false
+	})
+
+	$(".vj__nav-link").click(function(){
+		current = $(this).data("tab");
+		$(".vj__nav-link.selected").removeClass("selected");
+		$(this).addClass("selected");
+
+		tabNavigation();
+	})
+
+	function tabNavigation(){
+		console.log("tabNavigation: " + current);
+
+		if (current == "tunes"){
+			$(".vj__featured-box__column-right").removeClass("hide");
+			$(".vj__featured-box").addClass("hide");
+		} else if (current == "video"){
+			$(".vj__featured-box__column-right").addClass("hide");
+			$(".vj__featured-box").removeClass("hide");
+		} else if (current == "about"){
+
+		}
+	}
 });
 
 
