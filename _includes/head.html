@@ -1,4 +1,5 @@
 <head>
+{% assign random = site.time | date: "%s%N" %}
 
 	<title>{% if page.title %}{{ site.title_short | escape }} {{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 	<meta name="description" content="{{ page.excerpt | default: site.description_short | strip_html | normalize_whitespace | truncate: 160 | escape }}">
@@ -38,7 +39,7 @@
 	<script type="text/javascript" src="{{'/js/balancetext.min.js' | relative_url }}"></script>
 	<script type="text/javascript" src="{{ '/js/jquery.smartmenus.min.js' | relative_url }}"></script>
 
-	<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}?{{ random }}">
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 	<link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
 
