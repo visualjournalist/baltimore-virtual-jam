@@ -1,0 +1,60 @@
+<header class="site-header" role="banner">
+
+	<div class="vj__navbar black">
+	  <div class="vj__grid__full">
+		<div class="vj__grid">
+		<a href="{{ "/" | relative_url}}" class="vj__navbar__title" style="font-weight: bold;"><span class="vj__navbar__name">Baltimore Jam</span><h5 class="vj__navbar__subtitle">Tune finder</h5></a>
+
+		  <div id="menuButton" class="vj__navbar__toggle"></div>
+
+		  <nav id="main-nav" role="navigation" class="main-menu-nav">
+			<ul id="main-menu" class="sm sm-clean" data-smartmenus-id="14762810590939192">
+<!--
+  {% for cat in site.categories_list %}
+	  {% assign currentCat = cat.name %}
+			  <li id="navSection1"><a 
+
+			   {% if page.category == currentCat %}
+			   	class="current"
+			   {% endif %}
+
+			  href="{{ "/" | relative_url}}{{ currentCat }}">{{ currentCat }}</a></li>
+	{% endfor %}
+
+			{% for my_page in site.pages %}
+			 {% unless my_page.exclude_from_nav %}
+			  {% if my_page.title %}
+			  <li id="navSection1"><a 
+
+			   {% if page.category == my_page.category %}
+			   	class="current"
+			   {% endif %}
+
+			  href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+			  {% endif %}
+			  {% endunless %}
+			{% endfor %}
+
+<li class="vj__navbar__journalists"><a href="{{ site.url_base }}/travel/" class="has-submenu" id="sm-14762810590939192-1" aria-haspopup="true" aria-controls="sm-14762810590939192-2" aria-expanded="false"><span class="sub-arrow">+</span><span class="sub-arrow">+</span>Travel</a>
+
+					<ul id="sm-14762810590939192-2" role="group" aria-hidden="true" aria-labelledby="sm-14762810590939192-1" aria-expanded="false" class="sm-nowrap" style="width: auto; min-width: 10em; display: none; max-width: 20em; top: auto; left: 0px; margin-left: 0px; margin-top: 0px;">
+
+{% assign cat = "travel" %}
+{% assign sorted-posts = site.posts | where: "categories", cat %}{%- for post in sorted-posts limit:3 -%}
+<li><a href="{{ site.url_base }}{{ post.url | relative_url }}"><span style="color: #900; font-size: 13px; font-weight: bold; text-transform: uppercase;">{{ post.label}}</span><br>{{ post.title }}</a></li>
+{%- endfor -%}
+-->
+
+
+
+					</ul>
+				</li>
+			</ul>
+
+		  </nav>
+		</div>
+	  </div>
+	</div>
+
+</header>
+

@@ -1,0 +1,73 @@
+// utility classes
+
+.vj__clear:before,
+.vj__clear:after {
+	content: " ";
+	display: table;
+}
+
+.vj__clear:after {
+	clear: both;
+}
+
+.vj__constrain-width {
+	margin: 0 auto;
+	max-width: 740px;
+}
+
+.vj__rule {
+	@media only screen and (max-width: 640px) {
+		&.wide-right {
+			border-bottom: $border__dotted-light;
+			margin-bottom: 20px;
+			padding-bottom: 20px; 
+		}
+		&.wide-left {
+			border-top: $border__solid-light;
+			padding-top: 30px; 
+		}
+	}
+
+	@media only screen and (min-width: 640px) {
+		&.wide-right {
+			border-right: $border__solid-light;
+			padding-right: 30px; 
+		}
+		&.wide-left {
+			border-left: $border__solid-light;
+			padding-left: 30px; 
+		}
+	}
+}
+
+.vj__intro .vj__rule {
+	@media only screen and (max-width: 640px) {
+		&.wide-right {
+			border-bottom: none;
+			margin-bottom: 0;
+			padding-bottom: 0; 
+		}
+	}
+}
+
+@media only screen and (max-width: $media__medium) {
+	.vj__no-mobile {
+		display: none !important;
+	}
+}
+
+.vj__project {
+	.vj__hide-large {
+		display: block;
+		@media only screen and (min-width: 778px) {
+			display: none !important;
+		}
+	}
+}
+
+
+@media only screen and (min-width: $media__medium-large) and (max-width: $media__large--) {
+	.vj__no-tablet {
+		display: none;
+	}
+}

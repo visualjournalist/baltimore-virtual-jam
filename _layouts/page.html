@@ -1,0 +1,196 @@
+---
+layout: default
+
+
+
+---
+{% if page.language %}
+	{% assign current_language = page.language %}
+{% else %}
+	{% assign current_language = "english" %}
+{% endif %}
+
+{% assign config = site.data.config[current_language][0] %}
+{% assign baltimore = site.data.baltimore.english %}
+{% assign random = site.time | date: "%s%N" %}
+
+{% comment %}
+<!-- this is used for trying to create a list of the keys in the JSON -->
+{% endcomment %}
+{% assign balt = baltimore[0] %}
+
+<style type="text/css">
+	.vj__project .vj__kicker {margin-top: 50px; }
+
+	.vj__project .vj__key-group .vj__kicker {
+		display: block;
+		padding-left: 20px;
+		position: sticky; top: 65px;
+		width: 100%;
+	}
+	.vj__project .vj__key-group p {
+		border-top: 1px solid #CCC;
+		padding-top: 10px;
+		padding-left: 20px;
+	}
+</style>
+
+<article class="post">
+<div class="vj__grid__full" style="padding-top: 65px; max-width: none;">
+
+	  	<div class="vj__grid__full" style="max-width: none;">
+	  		<div class="vj__grid__two-thirdsxxx" style="position: fixed; top: 60px; width: 68.7%; left: 0; ">
+				<div class="vj__grid__full" style="">
+					{% include video.html %}
+					<div class="vj__grid__full" style="max-width: 852px; margin-right: 0; margin-left: auto;">
+						
+					<div class="vj__grid" style="margin-top: 10px;">
+						<h1 id="trackTitle"></h1>
+						<h4 id="jamDate"></h4>
+					</div>
+
+					<div class="vj__grid" style="margin-top: 60px;">
+						
+						<p>The Baltimore Old Time Jam is a bi-weekly session open to Old-Time musicians of all skill levels and backgrounds with the intention of creating a welcoming, communal and joyful space for making music together. Hosted by Ken & Brad Kolodner every other Tuesday night from 7-10pm at R House in the Remington neighborhood of Baltimore City. The first hour of the jam is a "slow jam" in which common tunes are played at a moderate tempo so anyone can join in. At 8pm, the tempo picks up for the "fast jam." We hope you can join us!</p>
+						<p>When the pandemic hit in 2020, the jam moved online.</p>
+					</div>
+
+					</div>
+			    </div>
+	  		</div><!--
+	  	--><div class="vj__grid__one-third" style="margin-right: 0; display: block; margin-left: auto; border-left: 1px solid #CCC;">
+
+
+
+	  		<div class="vj__grid__full" style="position: relative;">
+
+<div class="vj__key-group">
+	
+	<h3 class="vj__kicker" style="margin-top: 0;">Key of A</h3>
+	<div>
+		{% for tune in baltimore %}
+			{% if tune.KEY == "A" %}
+
+			<p>{{ tune.SONG }} ({{ tune.KEY }})</p>
+			<ul>
+				{% for test in balt %}
+
+					{% if tune[test[0]] != "" %}
+						{% assign jamDate = test[0] %}
+						{% if jamDate != "KEY" and jamDate != "SONG" %}
+							{% assign youtube = tune[jamDate] %}
+							{% if youtube contains '://' %}
+								<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }} ({{ tune.KEY }})" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+							{% endif %}
+						{% endif %}
+					{% endif %}
+
+				{% endfor %}
+
+				{% endif %}
+			</ul>
+		{% endfor %}
+	</div>
+</div>
+
+
+
+<div class="vj__key-group">
+
+<h3 class="vj__kicker">Key of C</h3>
+<div>
+	{% for tune in baltimore %}
+		{% if tune.KEY == "C" %}
+
+		<p>{{ tune.SONG }} ({{ tune.KEY }})</p>
+		<ul>
+			{% for test in balt %}
+
+				{% if tune[test[0]] != "" %}
+					{% assign jamDate = test[0] %}
+					{% if jamDate != "KEY" and jamDate != "SONG" %}
+						{% assign youtube = tune[jamDate] %}
+						{% if youtube contains '://' %}
+							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }} ({{ tune.KEY }})" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+
+			{% endfor %}
+
+			{% endif %}
+		</ul>
+	{% endfor %}
+</div>
+</div>
+
+
+<div class="vj__key-group">
+
+<h3 class="vj__kicker">Key of D</h3>
+<div>
+	{% for tune in baltimore %}
+		{% if tune.KEY == "D" %}
+
+		<p>{{ tune.SONG }} ({{ tune.KEY }})</p>
+		<ul>
+			{% for test in balt %}
+
+				{% if tune[test[0]] != "" %}
+					{% assign jamDate = test[0] %}
+					{% if jamDate != "KEY" and jamDate != "SONG" %}
+						{% assign youtube = tune[jamDate] %}
+
+						{% if youtube contains '://' %}
+
+							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }} ({{ tune.KEY }})" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+
+			{% endfor %}
+
+			{% endif %}
+		</ul>
+	{% endfor %}
+</div>
+</div>
+
+
+<div class="vj__key-group">
+
+<h3 class="vj__kicker">Key of G</h3>
+<div>
+	{% for tune in baltimore %}
+		{% if tune.KEY == "G" %}
+
+		<p>{{ tune.SONG }} ({{ tune.KEY }})</p>
+		<ul>
+			{% for test in balt %}
+
+				{% if tune[test[0]] != "" %}
+					{% assign jamDate = test[0] %}
+					{% if jamDate != "KEY" and jamDate != "SONG" %}
+						{% assign youtube = tune[jamDate] %}
+						{% if youtube contains '://' %}
+							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }} ({{ tune.KEY }})" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+
+			{% endfor %}
+
+			{% endif %}
+		</ul>
+	{% endfor %}
+</div>
+	  				
+	  			</div>
+	  		</div>
+
+
+		  	</div>
+	  	</div>
+
+</div>
+</article>

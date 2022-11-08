@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+{% assign currentCat = page.cat | default: 'portraits' %}
+<article class="post">
+	<div class="vj__grid__full" style="margin-bottom: 0;">
+		<div class="vj__grid" style="margin-bottom: 0;">
+			<div class="post-content">
+				<div class="vj__grid__full " style="margin-top: 65px;">
+					<h3 style=""><a href="./" style="color: #900; font-family: Arial, sans-serif; font-weight: bold; text-decoration: none; text-transform: uppercase; font-size: 12px;">{{ page.cat | default: 'Portraits-' }}</a></h3>
+						<div class="vj__grid__full"><!--
+					  {% assign counter = 0 %}
+					  {% for post in site.categories[currentCat] reversed %}
+						 --><div class="vj__grid__element">
+								<a class="post-link" href="{{ post.url | relative_url }}">
+									<picture>
+										<source srcset="{{site.url}}/img/{{ post.thumbnail }}" media="(min-width: 992px)">
+										<img src="{{site.url}}/img/{{ post.thumbnail | replace: 'w640_h640', 'w420_h420' }}" title="{{ post.title }}" alt="{{ post.alt }}">
+									</picture>	
+								</a>
+							</div><!--
+						  {% endfor %}
+						  -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+{% include footer.html %}
+<style type="text/css">
+	.vj__grid__full	img {
+		border: none !important;
+		display: block;
+	}
+</style>
+

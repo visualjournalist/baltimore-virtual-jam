@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<!--<script sync src="https://platform.twitter.com/widgets.js"></script>-->
+<div class="vj__content home" style="margin-bottom: 40px;">
+
+	<div style="position: relative; margin-bottom: 60px;">		
+		<picture>
+			<source srcset="{{ site.url_base }}/img/photo__panorama__santiago__w1920.jpg" media="(min-width: 1280px)">
+			<source srcset="{{ site.url_base }}/img/photo__panorama__santiago__w1280.jpg" media="(min-width: 1023px)">
+			<source srcset="{{ site.url_base }}/img/photo__panorama__santiago__w1023.jpg" media="(min-width: 740px)">
+			<source srcset="{{ site.url_base }}/img/photo__panorama__santiago__w740.jpg" media="(min-width: 640px)">
+			<source srcset="{{ site.url_base }}/img/photo__panorama__santiago__w640_h640.jpg" media="(min-width: 420px)">
+			<img id="panoramic" class="vj__photo panorama" src="{{ site.url_base }}/img/photo__panorama__santiago__w420_h420.jpg" alt="Panoramic photo Santiago Chile"  style="max-width: none; margin-bottom: 0 !important;" />
+		</picture>
+		<div class="vj__site-title">
+			<div class="vj__grid__full">
+				<div class="vj__grid">
+					<h1>{{ page.title }}</h1>				
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+{% include landing-featured.html
+cat = "our-story"
+%}
+
+
+
+{% include map.html %}
+
+{% include landing-three-column.html
+cat = "travel"
+kicker = "Travel arrangements"
+%}
+
+{% include landing-two-column.html
+cat = "travel"
+kicker = "Travel arrangements"
+%}
+
+{% include landing-ribbon.html
+cat = "travel"
+kicker = "Travel arrangements"
+%}
+
+
+
+</div>
+{% if site.development_mode %}
+<div id="siteWarning" style="position: fixed; bottom: 0; width: 100%; padding: 10px; text-align: center; background-color: #900; color: #FFF; z-index: 9999999;">
+  {{ site.development_warning }}
+</div>
+{% endif %}

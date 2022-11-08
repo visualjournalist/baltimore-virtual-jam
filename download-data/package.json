@@ -1,0 +1,13 @@
+{
+  "name": "download-googlesheets-app",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "papaparse": "^5.3.1",
+    "request": "2.88.2"
+  },
+  "author": "Brian Williamson"
+}

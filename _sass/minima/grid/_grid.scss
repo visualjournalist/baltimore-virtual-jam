@@ -1,0 +1,142 @@
+/* Basic grid */
+
+.vj__grid,
+.vj__grid__full {
+	margin: 0 auto 1rem auto;
+	max-width: $media__extra-large;
+	padding: 0 5%;
+	width: 100%;
+}
+
+.vj__grid__full {
+	padding: 0;
+}
+
+
+.vj__grid:before,
+.vj__grid:after,
+.vj__grid__full:before,
+.vj__grid__full:after {
+	content: " ";
+	display: table;
+}
+
+.vj__grid:after,
+.vj__grid__full:after {
+	clear: both;
+}
+
+
+.vj__grid__element,
+.vj__grid__one-half,
+.vj__grid__one-third {
+	margin: 0 auto 10px auto;
+	margin: 0 auto 1.5vh auto;
+	padding: 0;
+	vertical-align: top;
+	width: 100%;
+}
+
+.vj__grid__one-half:first-of-type {
+	margin-bottom: 30px;
+}
+
+
+.vj__grid__one-half.mobile {
+	display: inline-block;
+	margin-right: 1%;
+	vertical-align: top;
+	width: 49.5%;
+
+	&:nth-child(2n) {
+		margin-right: 0;
+	}
+}
+
+
+
+@media only screen and (min-width: $media__small) and (max-width: $media__large--) {
+	.vj__grid__element {
+		display: inline-block;
+		margin-right: 1.5%;
+		width: 48.2%;
+	}
+
+	.vj__grid__element:nth-child(2n) {
+		margin-right: 0;
+	}
+}
+
+@media only screen and (min-width: $media__large) {
+	.vj__grid__element {
+		display: inline-block;
+		margin-right: 1.25%;
+		width: 32.5%;
+	}
+
+	.vj__grid__element:nth-child(3n) {
+		margin-right: 0;
+	}
+
+	.vj__grid__one-half:first-of-type {
+		margin-bottom: 30px;
+		//padding-right: 20px;
+	}
+}
+
+@media only screen and (min-width: $media__medium) {
+	.vj__grid__one-half {
+		display: inline-block;
+		margin-right: 1%;
+		vertical-align: top;
+		width: 49.5%;
+	}
+
+	.vj__grid__one-half:nth-child(2n) {
+		margin-right: 0;
+	}
+
+	.vj__grid__one-half:first-of-type {
+		margin-bottom: 0;
+	}
+
+	.vj__grid__one-third {
+		display: inline-block;
+		margin-right: 1%;
+		vertical-align: top;
+		width: 32.5%;
+	}
+	.vj__grid__one-third:nth-child(3n) {
+		margin-right: 0%;
+	}
+	.vj__grid__two-thirds {
+		display: inline-block;
+		margin-right: 2%;
+		vertical-align: top;
+		width: 64%;
+	}
+}
+
+@media only screen and (min-width: $media__large) {
+	.vj__grid {
+		margin-bottom: 0;
+	}
+}
+
+
+@media only screen and (min-width: $media__extra-large) {
+	.vj__grid__one-third {
+		margin-right: 3%;
+		width: 31.3%;
+	}
+
+	.vj__grid__one-half {
+		margin-right: 3%;
+		width: 48.5%;
+	}
+
+	.vj__grid__two-thirds {
+		margin-right: 3%;
+		width: 62%;
+	}
+}

@@ -1,0 +1,22 @@
+{% if page.language %}
+	{% assign current_language = page.language %}
+{% else %}
+	{% assign current_language = "english" %}
+{% endif %}
+{% assign config = site.data.config[current_language][0] %}
+
+{% assign random = site.time | date: "%s%N" %}
+
+{% assign hotels = site.data.hotels[current_language] %}
+
+
+<div class="vj__grid__full" style="margin-bottom: 60px;">
+	<div id="map" class="map__container"></div>
+</div>
+
+<script type="text/javascript" src='{{ site.url_base }}/js/leaflet.js'></script>
+<link rel="stylesheet" type="text/css" href="{{ site.url_base }}/leaflet.css">
+
+<script type="text/javascript">
+	var hotels = {{ hotels | jsonify }};//
+</script>

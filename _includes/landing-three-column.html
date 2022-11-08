@@ -1,0 +1,61 @@
+{% comment %}
+<!--
+A widget for a landing page that features a 3-column set of links with:
+
+* optional kicker
+* photo
+* title
+* description
+
+
+INSTRUCTIONS:
+You can either define a category in the include (e.g. `cat = "destination" `)
+...or you can manually define the three links by including:
+
+link1 = '#'
+label1 = 'label-goes-here' <-------------(OPTIONAL)
+title1 = 'title 1 goes here'
+description1 = 'description summary goes here'
+
+there's also an optional call-to-action label: 
+call-to-action-label = "Watch the video"
+
+-->
+{% endcomment %}
+
+{% if page.language %}
+	{% assign current_language = page.language %}
+{% else %}
+	{% assign current_language = "english" %}
+{% endif %}
+
+{% assign config = site.data.config[current_language][0] %}
+{% assign random = site.time | date: "%s%N" %}
+
+<div class="vj__grid__full" style="padding-bottom: 60px;">
+	{% if include.kicker %}
+	<div class="vj__grid" style="margin-bottom: 0px; padding-bottom: 10px;">
+		<h3 class="vj__kicker">{% if include.cat %}<a href='{{ current_language }}/{{ include.cat }}/'>{% endif %}{{ include.kicker }}{% if include.cat %}</a>{% endif %}</h3>
+		{% if include.description %}<p style="margin-bottom: 0; margin-top: 0;">{{ include.description }}</p>{% endif %}
+	</div>
+	{% endif %}
+
+	<div class="vj__grid">
+		<!--
+{% assign cat = include.cat %}
+{% assign sorted-posts = site.posts | where: "categories", cat %}{%- for post in sorted-posts limit:3 -%}
+			--><div class="vj__grid__one-third vj__clear" style="margin-bottom: 20px;">
+			<a href="{{ site.url_base }}{{ post.url | relative_url }}" class="vj__promo">
+				<img src="{{ site.url_base }}/img/{{ post.thumbnail }}" alt="{{ post.alt }}">
+				{% if post.label %}<h3 class="vj__label small">{{ post.label }}</h3>{% endif %}
+				<h3>{{ post.title }}</h3>
+				<p> {{post.description}} </p>
+			</a>
+			{% if include.call-to-action-label %}<p><a href="{{ site.url_base }}{{ post.url | relative_url }}">{{ include.call-to-action-label }}</a></p>{% endif %}
+		</div><!--
+
+{%- endfor -%}
+
+	-->
+	</div>
+</div>

@@ -1,0 +1,96 @@
+{% comment %}
+<!--
+A widget for a landing page that features a large full width link with:
+
+* optional kicker
+* photo
+* title
+* description
+* and multicolumn text preview
+
+
+INSTRUCTIONS:
+You can either define a category in the include (e.g. `cat = "destination" `)
+...or you can manually define the link by including:
+
+link1 = '#'
+label1 = 'label-goes-here' <-------------(OPTIONAL)
+title1 = 'title 1 goes here'
+description1 = 'description summary goes here'
+
+there's also an optional call-to-action label: 
+call-to-action-label = "Watch the video"
+
+-->
+{% endcomment %}
+
+{% if page.language %}
+	{% assign current_language = page.language %}
+{% else %}
+	{% assign current_language = "english" %}
+{% endif %}
+
+{% assign config = site.data.config[current_language][0] %}
+{% assign random = site.time | date: "%s%N" %}
+
+<div class="vj__grid__full" style="padding-bottom: 60px;">
+	{% if include.kicker %}
+	<div class="vj__grid" style="margin-bottom: 0px; padding-bottom: 10px;">
+		<h3 class="vj__kicker">{% if include.cat %}<a href='{{ current_language }}/{{ include.cat }}/'>{% endif %}{{ include.kicker }}{% if include.cat %}</a>{% endif %}</h3>
+		{% if include.description %}<p style="margin-bottom: 0; margin-top: 0;">{{ include.description }}</p>{% endif %}
+	</div>
+	{% endif %}
+
+	<div class="vj__grid">
+		{% if include.link1 %}
+		<div class="vj__grid__full vj__clear" style="margin-bottom: 20px;">
+			<a href="{{ include.link1 }}" class="vj__promo">
+				<img src="img/photo__clair-marceaux__w740.jpg" alt="Photograph of a woman standing outside, wiping away a tear.">
+				{% if include.label1 %}<h3 class="vj__label small">{{ include.label1 }}</h3>{% endif %}
+				<h3>{{ include.title1 | default: 'include.title1' }}</h3>
+				<p>{{ include.description1 | default: 'include.description1'}}</p>
+			</a>
+			<div class="vj__multicolumn">
+				
+			</div>
+			{% if include.call-to-action-label %}<p><a href="{{ include.link1 }}">{{ include.call-to-action-label }}</a></p>{% endif %}
+		</div>{% else %}
+{% assign cat = include.cat %}
+{% assign sorted-posts = site.posts | where: "categories", cat %}{%- for post in sorted-posts limit:1 -%}
+		<div class="vj__grid__full vj__clear" style="margin-bottom: 20px;">
+			<a href="{{ site.url_base }}{{ post.url | relative_url }}" class="vj__promo">
+				<div class="vj__grid__full">
+					<picture>
+						<source srcset="{{ site.url_base }}/img/{{ post.image }}" media="(min-width: 1023px)">
+						<source srcset="{{ site.url_base }}/img/{{ post.image | replace: '_w1280', '_w1023' }}" media="(min-width: 740px)">
+						<source srcset="{{ site.url_base }}/img/{{ incpost.image | replace: '_w1280', '_w740' }}" media="(min-width: 640px)">
+						<source srcset="{{ site.url_base }}/img/{{ post.image | replace: '_w1280', '_w640_h640' }}" media="(min-width: 420px)">
+						<img id="" class="vj__photo full-width-mobile" src="{{ site.url_base }}/img/{{ post.image | replace: '_w1280', '_w420_h420' }}" alt="{{ post.alt }}"  style="max-width: none; margin-bottom: 5px !important;" />
+					</picture>
+					{% if post.caption %}
+					<div class="vj__grid"><p class="vj__caption">{{ post.caption }}</p></div>
+					{% endif %}
+				</div>
+
+				<div class="vj__constrain-width">
+					<h3 class="vj__label small">{{ post.label }}</h3>
+					<h3 class="vj__featured-headline">{{ post.title }}</h3>
+				</div>
+			</a>
+			<div class="vj__constrain-width">
+				<h4> {{post.summary}} </h4>
+			</div>
+			<div class="vj__constrain-width" style="margin-top: 30px;">
+				<div class="vj__multicolumn">
+					{{ post.content }}
+					<a href="{{ site.url_base }}{{ post.url | relative_url }}" style="direction: block; font-family: Arial, sans-serif;">&#9658; Read the full story</a>
+				</div>
+			</div>
+			{% if include.call-to-action-label %}<p><a href="{{ site.url_base }}{{ post.url | relative_url }}">{{ include.call-to-action-label }}</a></p>{% endif %}
+		</div>
+
+{%- endfor -%}
+
+	{% endif %}
+	</div>
+</div>

@@ -1,0 +1,39 @@
+{% if page.language %}
+	{% assign current_language = page.language %}
+{% else %}
+	{% assign current_language = "english" %}
+{% endif %}
+
+{% assign config = site.data.config[current_language][0] %}
+{% assign random = site.time | date: "%s%N" %}
+
+<div class="vj__grid__full" style="margin-bottom: 40px;">
+	<div class="vj__ribbon">
+		{% if include.cat %}
+
+			{% assign cat = include.cat %}
+			{% assign sorted-posts = site.posts | where: "categories", cat %}{%- for post in sorted-posts limit:1 -%}
+				<a href="{{ site.url_base }}{{ post.url | relative_url }}">
+					<div class="vj__grid__one-third" style="margin-bottom: 0;">
+						<img src="{{ site.url_base }}/img/{{ post.thumbnail }}" alt="{{ post.alt }}">
+					</div><!--
+				--><div class="vj__grid__two-thirds" style="padding: 30px;">					
+						<h2>{{ post.title '}}</h2>
+						<p>{{ post.description | default: post.summary}}</p>
+					</div>
+				</a>
+			{% endfor %}
+
+		{% else %}
+		<a href="{{ include.link | default: '#link'}}">
+			<div class="vj__grid__one-third">
+				<img src="{{ site.url_base }}/img/{{ include.photo | default: 'photo__ribbon__w640.jpg' }}" alt="{{ include.alt }}">
+			</div><!--
+		--><div class="vj__grid__two-thirds" style="padding: 30px;">					
+				<h2>{{ include.title | default 'include.title '}}</h2>
+				<p>{{ include.description | default: 'include.description '}}</p>
+			</div>
+		</a>
+		{% endif %}
+	</div>
+</div>

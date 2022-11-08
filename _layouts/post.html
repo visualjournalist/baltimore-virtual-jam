@@ -1,0 +1,113 @@
+---
+layout: default
+---
+<article class="post vj__grid__full vj__content vj__border-sides" itemscope itemtype="http://schema.org/BlogPosting" style="margin-top: 65px; margin-bottom: 0;">
+		{% include photo-large.html 
+			photo=page.image
+		%}
+		<div class="vj__grid">
+			<p class="vj__credit">{{ page.credit | default: "credit" }}</p>
+		</div>
+
+		<div class="post-content vj__grid" itemprop="articleBody">
+			<header class="post-header" style="padding-top: 15px; padding-bottom: 40px;">
+				<h3><a href="./" style="color: #900; font-family: Arial, sans-serif; font-weight: bold; text-decoration: none; text-transform: uppercase; font-size: 12px;">{{ page.label | default: page.categories }}</a></h3>
+				<h1 class="vj__painting-title">{{ page.title }}</h1>
+				{% if page.byline %}<h4 class="vj__painting-meta-data byline {% if page.byline %}{{ page.byline | downcase }}{% endif %}">{{ page.byline }}</h4>{% endif %}
+				<h4 class="vj__painting-meta-data">{{ page.date | date: "%B %-d, %Y" }}</h4>
+				<h4 class="vj__painting-meta-data">{{ page.size }}</h4>
+			</header>
+
+			<div class="vj__story {% if page.vertical %}vj__vertical-image{% endif %}">
+			  {{ content }}
+			</div>
+		</div>
+	</div>
+<!--
+ {{ page.categories | first }}
+
+<ul>
+	{% for category in page.categories %}
+		<li>
+				{{ category }}
+		</li>
+	{% endfor %} 
+</ul>
+
+-->
+
+
+
+	<div class="vj__grid__full vj__recent-projects  " style="padding-top: 40px;">
+
+		<div class="vj__grid">
+			<h3 class="vj__label" style="margin-bottom: 10px;">More posts</h3>
+		</div>
+		<div class="vj__grid">
+		<!--
+{% assign previousPostTitle = "x" %}
+{% assign previousPostThumbnail = "x" %}
+{% assign previousPostUrl = "x" %}
+
+{% assign previousPostTitleFinal = "y" %}
+{% assign previousPostThumbnailFinal = "y" %}
+{% assign previousPostUrlFinal = "y" %}
+
+{% assign nextPostTitle = "z" %}
+{% assign nextPostThumnail = "z" %}
+{% assign nextPostUrl = "z" %}
+
+{% for post in site.posts reversed %}
+
+	{% if post.title == page.title %}
+		{% assign previousPostTitleFinal = previousPostTitle %}
+		{% assign previousPostThumbnailFinal = previousPostThumbnail %}
+		{% assign previousPostUrlFinal = previousPostUrl %}
+	{% endif %}
+	{% if post.title != page.title %}
+
+		{% if previousPostTitleFinal != "y" %}
+			{% if nextPostTitle == "z" %}
+				{% assign nextPostTitle = post.title %}
+				{% assign nextPostThumnail = post.thumbnail %}
+				{% assign nextPostUrl = post.url %}
+			{% endif %}
+		{% endif %}
+
+	{% endif %}
+
+	{% assign previousPostTitle = post.title %}
+	{% assign previousPostThumbnail = post.thumbnail %}
+	{% assign previousPostUrl = post.url %}
+
+{% endfor %}
+
+{% if previousPostTitleFinal == "x" %}
+	{% assign previousPostTitleFinal = site.posts.first.title %}
+	{% assign previousPostThumbnailFinal = site.posts.first.thumbnail %}
+	{% assign previousPostUrlFinal = site.posts.first.url %}
+{% endif %}
+{% if nextPostTitle == "z" %}
+	{% assign nextPostTitle = site.posts.last.title %}
+	{% assign nextPostThumnail = site.posts.last.thumbnail %}
+	{% assign nextPostUrl = site.posts.last.url %}
+{% endif %}
+
+			--><div class="vj__grid__one-half mobile">
+				<a href="{{ previousPostUrlFinal }}">
+					<img src="/img/{{ previousPostThumbnailFinal }}">
+					<h3 class="headline">{{ previousPostTitleFinal }}</h3>
+				</a>
+			</div><!--
+			--><div class="vj__grid__one-half mobile">
+				<a href="{{ nextPostUrl }}">
+					<img src="/img/{{ nextPostThumnail }}">
+					<h3 class="headline">{{ nextPostTitle }}</h3>
+				</a>
+			</div><!--
+  		-->
+		</div>
+	</div>
+</article>
+
+{% include footer.html %}

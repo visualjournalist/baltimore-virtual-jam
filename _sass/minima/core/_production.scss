@@ -1,0 +1,22 @@
+/* 
+//Minor styles that are only needed during production/editing process 
+*/
+.vj__publish-warning {
+	background-color: $color__vj-red--dark;
+	color: #FFF; 
+	font-size: 80%;
+	min-width: 300px;
+	padding: 20px;
+	pointer-events: none;
+	position: fixed;
+		bottom: 50px;
+		left: 0;
+	width: 50%;
+	z-index: 9999;
+
+	.vj__publish-warning__close-button {
+		cursor: pointer; cursor: hand;
+		float: right;
+		pointer-events: auto;
+	}
+}

@@ -1,0 +1,11 @@
+<div class="vj__grid__full">
+	<picture>
+		<source srcset="{{ site.url_base }}/img/{{ include.photo | replace: '_w1280', '_w1023' }}" media="(min-width: 740px)">
+		<source srcset="{{ site.url_base }}/img/{{ include.photo | replace: '_w1280', '_w740' }}" media="(min-width: 640px)">
+		<source srcset="{{ site.url_base }}/img/{{ include.photo | replace: '_w1280', '_w640_h640' }}" media="(min-width: 420px)">
+		<img id="panoramic" class="vj__photo panorama" src="{{ site.url_base }}/img/{{ include.photo | replace: '_w1280', '_w420_h420' }}" alt="{{ include.alt }}"  style="max-width: 640px; margin: 0 auto 5px auto !important;" />
+	</picture>
+	{% if include.caption %}
+	<div class="vj__grid"><p class="vj__caption" style="max-width: 640px;">{{ include.caption }}</p></div>
+	{% endif %}
+</div>

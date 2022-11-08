@@ -1,0 +1,58 @@
+# Welcome to Jekyll!
+# Site settings
+
+url_base: "" # the subpath of your site, e.g. /blog
+url: "visualjournali.st/baltimore-jam-tune-finder" # the base hostname & protocol for your site, e.g. http://example.com
+
+github_username: "bbgvisualjournalist"
+
+development_mode: true
+development_warning: This site is currently under active development. You may encounter lorem ipsum.
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - Gemfile
+  - Gemfile.lock
+  - ai2html
+  - README.md
+  - graphics_raw
+  - ap
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - ai2html
+  - README.md
+  - alt-text.md
+  - research
+  - download-data
+  - documents
+  - storyboard
+sass:
+  style: compressed
+repository: "visualjournalist/baltimore-jam-tune-finder"
+
+
+permalink: /:categories/:title
+
+
+
+
+title: baltimore-jam-tune-finder
+description: > # this means to ignore newlines until "baseurl:"
+  Coming soon
+title_short: baltimore-jam-tune-finder |  
+description_short: > # this means to ignore newlines until "baseurl:"
+  coming soon
+
+description_link: > # 
+  coming soon
+
+categories_list:
+#  - name: Portraits
+#    totalStories: 3
+#    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+#  - name: Animals
+#    totalStories: 4
+#    description: Carol Williamson's animal portraits description goes here
