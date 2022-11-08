@@ -67,6 +67,16 @@ $(document).ready(function(){
 		$(".vj__featured-box__column-right").addClass("hide");
 		$(".vj__featured-box").removeClass("hide");
 
+		if (chords[trackTitle]){
+			console.log("chords!")
+			console.log(chords[trackTitle].chords);
+			$("#summary").html(chords[trackTitle].chords)
+			$("#summary").addClass("chords")
+		} else {
+			console.log('no chords')
+			$("#summary").html("")
+		}
+
 		return false;
 	})
 

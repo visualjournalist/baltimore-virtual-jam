@@ -12,6 +12,7 @@ layout: default
 
 {% assign config = site.data.config[current_language][0] %}
 {% assign baltimore = site.data.baltimore.english %}
+{% assign chords = site.data.chords.english %}
 {% assign random = site.time | date: "%s%N" %}
 
 {% comment %}
@@ -35,8 +36,8 @@ layout: default
 
 					<div class="vj__grid" style="margin-top: 60px;">
 						
-						<p>The Baltimore Old Time Jam is a bi-weekly session open to Old-Time musicians of all skill levels and backgrounds with the intention of creating a welcoming, communal and joyful space for making music together. Hosted by Ken & Brad Kolodner every other Tuesday night from 7-10pm at R House in the Remington neighborhood of Baltimore City. The first hour of the jam is a "slow jam" in which common tunes are played at a moderate tempo so anyone can join in. At 8pm, the tempo picks up for the "fast jam." We hope you can join us!</p>
-						<p>When the pandemic hit in 2020, the jam moved online.</p>
+						<p id="summary">The Baltimore Old Time Jam is a bi-weekly session open to Old-Time musicians of all skill levels and backgrounds with the intention of creating a welcoming, communal and joyful space for making music together. Hosted by Ken & Brad Kolodner every other Tuesday night from 7-10pm at R House in the Remington neighborhood of Baltimore City. The first hour of the jam is a "slow jam" in which common tunes are played at a moderate tempo so anyone can join in. At 8pm, the tempo picks up for the "fast jam." We hope you can join us! When the pandemic hit in 2020, the jam moved online.</p>
+
 					</div>
 
 					</div>
@@ -64,15 +65,15 @@ layout: default
 						{% if jamDate != "KEY" and jamDate != "SONG" %}
 							{% assign youtube = tune[jamDate] %}
 							{% if youtube contains '://' %}
-								<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }} ({{ tune.KEY }})" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+								<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }}" data-key="{{ tune.KEY }}" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
 							{% endif %}
 						{% endif %}
 					{% endif %}
 
 				{% endfor %}
 
-				{% endif %}
 			</ul>
+			{% endif %}
 		{% endfor %}
 	</div>
 </div>
@@ -95,15 +96,15 @@ layout: default
 					{% if jamDate != "KEY" and jamDate != "SONG" %}
 						{% assign youtube = tune[jamDate] %}
 						{% if youtube contains '://' %}
-							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }} ({{ tune.KEY }})" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }}" data-key="{{ tune.KEY }}" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
 						{% endif %}
 					{% endif %}
 				{% endif %}
 
 			{% endfor %}
 
-			{% endif %}
 		</ul>
+		{% endif %}
 	{% endfor %}
 </div>
 </div>
@@ -113,12 +114,12 @@ layout: default
 
 <h3 class="vj__kicker">Key of D</h3>
 <div>
-	{% for tune in baltimore %}
+	{%- for tune in baltimore -%}
 		{% if tune.KEY == "D" %}
 
 		<p>{{ tune.SONG }} ({{ tune.KEY }})</p>
 		<ul>
-			{% for test in balt %}
+			{%- for test in balt -%}
 
 				{% if tune[test[0]] != "" %}
 					{% assign jamDate = test[0] %}
@@ -127,16 +128,16 @@ layout: default
 
 						{% if youtube contains '://' %}
 
-							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }} ({{ tune.KEY }})" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }}" data-key="{{ tune.KEY }}" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
 						{% endif %}
 					{% endif %}
 				{% endif %}
 
-			{% endfor %}
+			{%- endfor -%}
 
-			{% endif %}
 		</ul>
-	{% endfor %}
+		{% endif %}
+	{%- endfor -%}
 </div>
 </div>
 
@@ -145,28 +146,28 @@ layout: default
 
 <h3 class="vj__kicker">Key of G</h3>
 <div>
-	{% for tune in baltimore %}
+	{%- for tune in baltimore -%}
 		{% if tune.KEY == "G" %}
 
 		<p>{{ tune.SONG }} ({{ tune.KEY }})</p>
 		<ul>
-			{% for test in balt %}
+			{%- for test in balt -%}
 
 				{% if tune[test[0]] != "" %}
 					{% assign jamDate = test[0] %}
 					{% if jamDate != "KEY" and jamDate != "SONG" %}
 						{% assign youtube = tune[jamDate] %}
 						{% if youtube contains '://' %}
-							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }} ({{ tune.KEY }})" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+							<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }}" data-key="{{ tune.KEY }}" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
 						{% endif %}
 					{% endif %}
 				{% endif %}
 
-			{% endfor %}
+			{%- endfor -%}
 
-			{% endif %}
 		</ul>
-	{% endfor %}
+		{% endif %}
+	{%- endfor -%}
 </div>
 	  				
 	  			</div>
@@ -175,3 +176,25 @@ layout: default
 
 		  	</div>
 	  	</div>
+
+
+
+<script type="text/javascript">
+	var chords = {
+
+		{%- for tune in baltimore -%}
+			{%- for song in chords -%}
+				{%- if tune.SONG == song.tune -%}
+					{%- assign tuneChords = song.chords -%}
+					{%- if tuneChords.size > 2 -%}
+					"{{ song.tune }}": {
+						"chords": "{{ song.chords | newline_to_br }}"
+					},
+					{%- endif -%}
+				{%- endif -%}
+			{%- endfor -%}
+		{%- endfor -%}
+
+	}
+
+</script>

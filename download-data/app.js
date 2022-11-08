@@ -57,6 +57,10 @@ CONFIG
 // https://docs.google.com/spreadsheets/d/1fbb395KjgD4wRi04s4FvX3GYegHz3gZ8e-nBXw1agQ8/edit#gid=1310162511
 // https://docs.google.com/spreadsheets/d/e/2PACX-1vRfo2CENUaYK248KEbMmZodbVvGW7bw9uZSD0FhJKrJWI9n9dVIqldmwSoq8o9hsUpsLfMB3JdkzFb_/pubhtml
 
+// Tune chords
+// https://docs.google.com/spreadsheets/d/1kSSyVHMvjAxcpUiV_dgV0uvtwKMxdjs7t2ryaTfAxxQ/edit#gid=1609943170
+// https://docs.google.com/spreadsheets/d/e/2PACX-1vTe5dXuQLFJOKuq4c5Fvaaz8udlQJtG0necpprB9KCtsA1mMo-wqb3e4xSolH53t0siRIvWUnVNKAjj/pubhtml
+
 */
 
 var spreadsheets = [
@@ -73,6 +77,14 @@ var spreadsheets = [
 			{
 				'language': 'english',
 				'gid': 1310162511
+			}
+		]
+	},
+	{"name": "chords", "id": "2PACX-1vTe5dXuQLFJOKuq4c5Fvaaz8udlQJtG0necpprB9KCtsA1mMo-wqb3e4xSolH53t0siRIvWUnVNKAjj", "location": "../_data/",
+		'languages': [
+			{
+				'language': 'english',
+				'gid': 1609943170
 			}
 		]
 	}

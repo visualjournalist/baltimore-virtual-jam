@@ -17,6 +17,12 @@
 
 	}
 
+	p#summary{
+		&.chords {
+			letter-spacing: 10px;
+		}
+	}
+
 	.vj__key-group {
 		.vj__kicker {
 			background-color: #900;
@@ -29,8 +35,8 @@
 		}
 
 		p {
-			border-top: 1px solid #CCC;
-			padding-top: 10px;
+			font-weight: bold;
+			padding-top: 12px;
 			padding-left: 20px;
 
 			&:first-of-type {
@@ -38,6 +44,34 @@
 				margin-top: 60px;
 				@media only screen and (min-width: $media__medium-large) {
 					margin-top: 0;
+				}
+			}
+		}
+
+		ul {
+			padding-left: 0;
+			
+			li {
+				border-top: 1px solid #CCC;
+				list-style: none;
+				padding: 0;
+				width: 100%; 
+
+				a {
+					color: #555;
+					display: block;
+					padding: 10px 20px 10px 40px;
+					text-decoration: none;
+					width: 100%;
+
+					&:hover {
+						background-color: #F1F1F1;
+						color: #222;
+					}
+				}
+
+				&:last-of-type {
+					border-bottom: 1px solid #CCC;
 				}
 			}
 		}
