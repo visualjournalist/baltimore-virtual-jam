@@ -1,6 +1,95 @@
 // Put project-specific CSS here.
 
 .vj__project {
+	.vj__shell {
+		height: 100%;
+		max-width: none; 
+		position: relative;
+		width: 100%; 
+
+		@media only screen and (max-width: $media__medium-large--) {
+			overflow-x: hidden;
+		}
+
+		@media only screen and (min-width: $media__medium-large) {
+			padding-top: 65px; 
+		}
+
+	}
+
+	.vj__key-group {
+		.vj__kicker {
+			background-color: #900;
+			display: block;
+			margin-top: 50px;
+			margin-bottom: 0;
+			padding: 15px 20px;
+			position: sticky; top: 65px;
+			width: 100%;
+		}
+
+		p {
+			border-top: 1px solid #CCC;
+			padding-top: 10px;
+			padding-left: 20px;
+
+			&:first-of-type {
+				border-top: none;
+				margin-top: 60px;
+				@media only screen and (min-width: $media__medium-large) {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+
+	.vj__featured-box{
+		position: fixed; 
+			top: 60px; 
+			left: 0;
+		transition: left .5s;
+		width: 100%;
+		@media only screen and (max-width: $media__medium-large--) {
+			&.hide {
+				left: -90%;
+			}
+		}
+		@media only screen and (min-width: $media__medium-large) {
+			position: fixed; 
+				top: 60px; 
+				left: 0;
+				right: auto !important;
+			width: 68%;
+		}
+	}
+	.vj__featured-box__column-right {
+		background-color: #FFF;
+		height: 100%;
+		//height: calc(100% - 20px);
+		position: absolute;
+			right: 0%;
+		transition: right .5s;
+		width: 90%;
+		@media only screen and (max-width: $media__medium-large--) {
+			&.hide {
+				right: -90%;
+			}
+		}
+		@media only screen and (max-width: $media__medium-large--) {
+			border-right: 1px solid #CCC;
+			overflow-y: scroll;
+		}
+
+		@media only screen and (min-width: $media__medium-large) {
+			border-left: 1px solid #CCC;
+			display: block; 
+			margin-right: 0; 
+			margin-left: auto; 
+			position: relative;
+			width: 32%;
+		}
+	}
+
 
 	img {
 		display: block;

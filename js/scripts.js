@@ -12,6 +12,7 @@ $(document).ready(function(){
 	// ===================
 	// |  Dropdown menu  |
 	// ===================
+	/*
 	$(function() {
 		$('#main-menu').smartmenus({
 			subMenusSubOffsetX: 1,
@@ -30,11 +31,7 @@ $(document).ready(function(){
 	$( ".vj__content" ).click(function() {
 		$( ".main-menu-nav").hide();
 	});
-
-
-	$("#siteWarning").click(function() {
-		$( "#siteWarning").hide();
-	});
+	*/
 
 
 	//createMap();
@@ -66,7 +63,16 @@ $(document).ready(function(){
 		$("#jamDate").text(jamDate)
 		console.log("jamDate: " + jamDate)
 
+
+		$(".vj__featured-box__column-right").addClass("hide");
+		$(".vj__featured-box").removeClass("hide");
+
 		return false;
+	})
+
+	$("#menuButton").click(function(){
+		$(".vj__featured-box__column-right").toggleClass("hide");
+		$(".vj__featured-box").toggleClass("hide");
 	})
 });
 

@@ -20,27 +20,11 @@ layout: default
 {% assign balt = baltimore[0] %}
 
 <style type="text/css">
-	.vj__project .vj__kicker {margin-top: 50px; }
-
-	.vj__project .vj__key-group .vj__kicker {
-		display: block;
-		padding-left: 20px;
-		position: sticky; top: 65px;
-		width: 100%;
-	}
-	.vj__project .vj__key-group p {
-		border-top: 1px solid #CCC;
-		padding-top: 10px;
-		padding-left: 20px;
-	}
 </style>
 
-<article class="post">
-<div class="vj__grid__full" style="padding-top: 65px; max-width: none;">
-
-	  	<div class="vj__grid__full" style="max-width: none;">
-	  		<div class="vj__grid__two-thirdsxxx" style="position: fixed; top: 60px; width: 68.7%; left: 0; ">
-				<div class="vj__grid__full" style="">
+<div class="vj__shell" style="">
+	  		<div class="vj__featured-box hide" style="">
+				<div class="vj__grid__full">
 					{% include video.html %}
 					<div class="vj__grid__full" style="max-width: 852px; margin-right: 0; margin-left: auto;">
 						
@@ -58,7 +42,7 @@ layout: default
 					</div>
 			    </div>
 	  		</div><!--
-	  	--><div class="vj__grid__one-third" style="margin-right: 0; display: block; margin-left: auto; border-left: 1px solid #CCC;">
+	  	--><div class="vj__featured-box__column-right" style="">
 
 
 
@@ -191,6 +175,3 @@ layout: default
 
 		  	</div>
 	  	</div>
-
-</div>
-</article>
