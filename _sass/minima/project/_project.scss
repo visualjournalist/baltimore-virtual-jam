@@ -68,6 +68,10 @@
 						background-color: #F1F1F1;
 						color: #222;
 					}
+
+					&.selected {
+						border-left: 8px solid #900;
+					}
 				}
 
 				&:last-of-type {
@@ -115,12 +119,20 @@
 		}
 
 		@media only screen and (min-width: $media__medium-large) {
-			border-left: 1px solid #CCC;
+			//border-left: 1px solid #CCC;
 			display: block; 
 			margin-right: 0; 
 			margin-left: auto; 
 			position: relative;
 			width: 32%;
+		}
+
+		.vj__grid__full {
+			position: relative;
+			@media only screen and (min-width: $media__medium-large) {
+				border-left: 1px solid #F1F1F1;
+			}
+
 		}
 	}
 

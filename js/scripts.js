@@ -77,6 +77,9 @@ $(document).ready(function(){
 			$("#summary").html("")
 		}
 
+		$("a.tune").removeClass("selected");
+		$(this).addClass("selected");
+
 		return false;
 	})
 

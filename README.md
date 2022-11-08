@@ -20,6 +20,7 @@
 * After clicking a tune, display links to alternate versions/dates
 * About the tune link
 * Show other tunes played at this jam
+* Bookmark your tunes
 
 
 ### How do you find the tune? ###
