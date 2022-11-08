@@ -2,9 +2,10 @@
 # Site settings
 
 url_base: "" # the subpath of your site, e.g. /blog
-url: "visualjournali.st/baltimore-jam-tune-finder" # the base hostname & protocol for your site, e.g. http://example.com
+# url: ""
+url: "https://visualjournali.st/baltimore-virtual-jam" # the base hostname & protocol for your site, e.g. http://example.com
 
-github_username: "bbgvisualjournalist"
+github_username: "visualjournalist"
 
 development_mode: true
 development_warning: This site is currently under active development. You may encounter lorem ipsum.
@@ -31,7 +32,7 @@ exclude:
   - storyboard
 sass:
   style: compressed
-repository: "visualjournalist/baltimore-jam-tune-finder"
+repository: "visualjournalist/baltimore-virtual-jam"
 
 
 permalink: /:categories/:title

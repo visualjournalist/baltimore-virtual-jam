@@ -13,14 +13,14 @@
 
 	<!-- for Google -->
 	<meta name="description" content="{{ page.excerpt | default: site.description_short | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-	<meta name="keywords" content="Wedding, Chile" />
-	<meta name="author" content="Sean Williamson and Johanna Moya" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Brian Williamson" />
 
 	<!-- for Facebook -->
 	<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
 	<meta property="og:type" content="website" />
 
-	<meta property="og:image" content="//idreamofchile.com/img/{{ page.image | default: 'photo__coming-soon.jpg' }}" />
+	<meta property="og:image" content="/img/{{ page.image | default: 'photo__coming-soon.jpg' }}" />
 
 	<meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}" />
 	<meta property="og:description" content="{{ page.excerpt | default: site.description_short | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
@@ -34,9 +34,9 @@
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-	<script type="text/javascript" src="/js/scripts.js"></script>
-	<script type="text/javascript" src='/js/balancetext.min.js'></script>
-	<script type="text/javascript" src="/js/jquery.smartmenus.min.js"></script>
+	<script type="text/javascript" src="{{'/js/scripts.js' | relative_url }}"></script>
+	<script type="text/javascript" src="{{'/js/balancetext.min.js' | relative_url }}"></script>
+	<script type="text/javascript" src="{{ '/js/jquery.smartmenus.min.js' | relative_url }}"></script>
 
 	<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
