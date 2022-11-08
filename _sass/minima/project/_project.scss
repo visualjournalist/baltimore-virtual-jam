@@ -19,7 +19,10 @@
 
 	p#summary{
 		&.chords {
-			letter-spacing: 10px;
+			word-spacing: 10px;
+			@media only screen and (min-width: 420px) {
+				word-spacing: 20px;
+			}
 		}
 	}
 
@@ -128,11 +131,8 @@
 		}
 
 		.vj__grid__full {
+			border-left: 1px solid #F1F1F1;
 			position: relative;
-			@media only screen and (min-width: $media__medium-large) {
-				border-left: 1px solid #F1F1F1;
-			}
-
 		}
 	}
 
