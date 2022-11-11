@@ -8,8 +8,25 @@ function logger(logString){
 	}
 }
 
+
+
+// `folderObject` is the object for editing and updating the active query.
+// As it is updated, we push the changes to localStorage, where they're saved as a string 
+// The localStorage version is loaded and parsed on initial page load.
+var folderObject = {};
+if ( localStorage.getItem('folder') ){
+	folderObject = JSON.parse(localStorage.getItem('folder'));
+}
+
+
+
+
+
+
 $(document).ready(function(){
-	logger("Ready x");
+	logger("Ready — folderObject?");
+
+	console.log(folderObject)
 
 	// ===================
 	// |  Dropdown menu  |
@@ -92,7 +109,56 @@ $(document).ready(function(){
 		$(".vj__nav-link.selected").removeClass("selected");
 		$("#navVideo").addClass("selected");
 
+
+
+
 		return false;
+	})
+
+
+	// Fold the corners on saved cards (from localStorage)
+	for( tune in folderObject){
+		var tuneNameSimplified = folderObject[tune].name;
+		console.log("tuneNameSimplified");
+		console.log(tuneNameSimplified)
+		tuneNameSimplified = tuneNameSimplified.replaceAll(" ", "");
+		tuneNameSimplified = tuneNameSimplified.replaceAll(".", "")
+		tuneNameSimplified = tuneNameSimplified.replaceAll("'", "")
+		tuneNameSimplified = tuneNameSimplified.replaceAll("(", "")
+		tuneNameSimplified = tuneNameSimplified.replaceAll(")", "")
+		tuneNameSimplified = tuneNameSimplified + folderObject[tune].key;
+		console.log(tuneNameSimplified);
+
+		$("#" + tuneNameSimplified ).addClass("added");
+
+		$("#" + tuneNameSimplified ).next("ul").addClass("show");
+	}
+
+
+	// Trying to set up code to save tunes to local object
+	$(".vj__add-tune").click(function(){
+		trackTitle = $(this).data("tune");
+		key = $(this).data("key");
+
+		if($(this).hasClass("added")){
+			$(this).removeClass("added");
+			$(this).next("ul").removeClass("show");
+			logger("Trying to delete: " + trackTitle);
+			delete folderObject[trackTitle];
+		} else {
+			$(this).addClass("added");
+			$(this).next("ul").addClass("show");
+			folderObject[trackTitle] = {};
+
+			folderObject[trackTitle].name = trackTitle;
+			folderObject[trackTitle].key = key;
+
+		}
+
+		localStorage.setItem('folder', JSON.stringify(folderObject))
+
+		console.log("current saved tunes")
+		console.log(folderObject);
 	})
 
 	$("#menuButton").click(function(){
@@ -119,11 +185,13 @@ $(document).ready(function(){
 		if (current == "tunes"){
 			$(".vj__featured-box__column-right").removeClass("hide");
 			$(".vj__featured-box").addClass("hide");
+			$(".vj__featured-box__column-right").removeClass("showSaved")
 		} else if (current == "video"){
 			$(".vj__featured-box__column-right").addClass("hide");
 			$(".vj__featured-box").removeClass("hide");
+			$(".vj__featured-box__column-right").removeClass("showSaved")
 		} else if (current == "about"){
-
+			$(".vj__featured-box__column-right").addClass("showSaved")
 		}
 	}
 });

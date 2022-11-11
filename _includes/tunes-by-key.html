@@ -1,0 +1,44 @@
+{% if page.language %}
+	{% assign current_language = page.language %}
+{% else %}
+	{% assign current_language = "english" %}
+{% endif %}
+{% assign config = site.data.config[current_language][0] %}
+
+{% assign baltimore = site.data.baltimore.english %}
+{% assign balt = baltimore[0] %}
+
+{% assign key = include.key | default: 'A' %}
+
+<div id="{{ key }}" class="vj__key-group">	
+	<h3 class="vj__kicker" style="margin-top: 0;">Key of {{ key }}</h3>
+	<div>
+		{% for tune in baltimore %}
+			{% if tune.KEY == key %}
+
+			<a href="#" id="{{ tune.SONG 
+							| remove: ' ' 
+							| remove: '.' 
+							| remove: '(' 
+							| remove: ')' 
+							| remove: "'" }}{{ tune.KEY }}" class="vj__add-tune" data-tune="{{ tune.SONG }}" data-key="{{ tune.KEY }}">{{ tune.SONG }} ({{ tune.KEY }}) </a>
+			<ul>
+				{% for test in balt %}
+
+					{% if tune[test[0]] != "" %}
+						{% assign jamDate = test[0] %}
+						{% if jamDate != "KEY" and jamDate != "SONG" %}
+							{% assign youtube = tune[jamDate] %}
+							{% if youtube contains '://' %}
+								<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }}" data-key="{{ tune.KEY }}" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+							{% endif %}
+						{% endif %}
+					{% endif %}
+
+				{% endfor %}
+
+			</ul>
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>
