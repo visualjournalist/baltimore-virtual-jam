@@ -119,24 +119,29 @@ $(document).ready(function(){
 	})
 
 
-	// Fold the corners on saved cards (from localStorage)
-	for( tune in folderObject){
-		var tuneNameSimplified = folderObject[tune].name;
-		console.log("tuneNameSimplified");
-		console.log(tuneNameSimplified)
-		tuneNameSimplified = tuneNameSimplified.replaceAll(" ", "");
-		tuneNameSimplified = tuneNameSimplified.replaceAll(".", "")
-		tuneNameSimplified = tuneNameSimplified.replaceAll("'", "")
-		tuneNameSimplified = tuneNameSimplified.replaceAll("(", "")
-		tuneNameSimplified = tuneNameSimplified.replaceAll(")", "")
-		tuneNameSimplified = tuneNameSimplified + folderObject[tune].key;
-		console.log(tuneNameSimplified);
+	function updateTunesInBinder(){
 
-		$("#" + tuneNameSimplified ).addClass("added");
+		// Fold the corners on saved cards (from localStorage)
+		for( tune in folderObject){
+			var tuneNameSimplified = folderObject[tune].name;
+			console.log("tuneNameSimplified");
+			console.log(tuneNameSimplified)
+			tuneNameSimplified = tuneNameSimplified.replaceAll(" ", "");
+			tuneNameSimplified = tuneNameSimplified.replaceAll(".", "")
+			tuneNameSimplified = tuneNameSimplified.replaceAll("'", "")
+			tuneNameSimplified = tuneNameSimplified.replaceAll("(", "")
+			tuneNameSimplified = tuneNameSimplified.replaceAll(")", "")
+			tuneNameSimplified = tuneNameSimplified + folderObject[tune].key;
+			console.log(tuneNameSimplified);
+			var tuneNameSimplifiedAlphabetical = tuneNameSimplified + "alphabetical";
 
-		$("#" + tuneNameSimplified ).next("ul").addClass("show");
+			$("#" + tuneNameSimplified ).addClass("added");
+			$("#" + tuneNameSimplifiedAlphabetical ).addClass("added");
+
+			$("#" + tuneNameSimplified ).next("ul").addClass("show");
+		}
 	}
-
+	updateTunesInBinder();
 
 	// Trying to set up code to save tunes to local object
 	$(".vj__add-tune").click(function(){
@@ -144,13 +149,13 @@ $(document).ready(function(){
 		key = $(this).data("key");
 
 		if($(this).hasClass("added")){
-			$(this).removeClass("added");
-			$(this).next("ul").removeClass("show");
+			//$(this).removeClass("added");
+			//$(this).next("ul").removeClass("show");
 			logger("Trying to delete: " + trackTitle);
 			delete folderObject[trackTitle];
 		} else {
-			$(this).addClass("added");
-			$(this).next("ul").addClass("show");
+			//$(this).addClass("added");
+			//$(this).next("ul").addClass("show");
 			folderObject[trackTitle] = {};
 
 			folderObject[trackTitle].name = trackTitle;
@@ -162,6 +167,8 @@ $(document).ready(function(){
 
 		console.log("current saved tunes")
 		console.log(folderObject);
+
+		updateTunesInBinder();
 
 		return false
 	})
