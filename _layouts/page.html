@@ -46,7 +46,7 @@ layout: default
 	  	--><div class="vj__featured-box__column-right">
 			<div class="vj__grid__full">
 
-
+<div id="tuneList" class="show">
 
 
 {% include tunes-by-key.html
@@ -68,20 +68,38 @@ key="D"
 key="G"
 %}
 
+</div>
 
-
+<div id="alphabeticalList" class="vj__tune-list__a-z" style="">
+	<div class="vj__grid__full" >
+		<div class="vj__grid">
+			{% include tunes-a-z.html %}
+		</div>
+	</div>
+</div>
 
 
 		  		</div>
 		  	</div>
 	  	</div>
 
-
+<!--
+<div id="alphabeticalList" class="vj__tune-list__a-z" style="position: fixed; top: 0; left: 0; width: 100%;
+height: 100vh;
+overflow-y: scroll; z-index: 10; background-color: #FFF;">
+	<div class="vj__grid__full" >
+		<div class="vj__grid">
+			{% include tunes-a-z.html %}
+		</div>
+	</div>
+</div>
+-->
 
 <div class="vj__footer-navigation__shell">
-	<a href="#tune" id="navTunes" class="vj__nav-link selected" data-tab="tunes">Tunes</a><!--
+	<a href="#tune" id="navTunes" class="vj__nav-link selected" data-tab="tunes" title="List of tunes grouped by key">Tunes</a><!--
 	--><a href="#video" id="navVideo" class="vj__nav-link" data-tab="video">Video</a><!--
-	--><a href="#about" id="navAbout" class="vj__nav-link" data-tab="about">Binder</a>
+	--><a href="#binder" id="navBinder" class="vj__nav-link" data-tab="binder" title="The saved list of the tunes you're working on.">Binder</a><!--
+	--><a href="#alphabetical" id="navAbout" class="vj__nav-link" data-tab="alphabetical" title="An alphabetical listing of all tunes">A-Z</a>
 </div>
 
 <script type="text/javascript">

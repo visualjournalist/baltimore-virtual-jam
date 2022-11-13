@@ -54,7 +54,7 @@ $(document).ready(function(){
 
 
 	//createMap();
-	var videoUrl = "https://www.youtube.com/embed/" + "S7SxD9fALlo?start=4481";
+	var videoUrl = "https://www.youtube.com/embed/" + "S7SxD9fALlo?start=4481s";
 	console.log("videoUrl: " + videoUrl)
 
 	$("#jamVideo").attr("src", videoUrl)
@@ -75,7 +75,10 @@ $(document).ready(function(){
 
 		tune = tune[0];
 
-		videoUrl = "https://www.youtube.com/embed/" + tune + "?start=" + timecode;
+		videoUrl = "https://www.youtube.com/embed/" + tune + "?start=" + timecode;// + "s";
+
+		console.log(trackTitle);
+		console.log(videoUrl);
 
 		$("#jamVideo").attr("src", videoUrl)
 		$("#trackTitle").text(trackTitle)
@@ -159,6 +162,8 @@ $(document).ready(function(){
 
 		console.log("current saved tunes")
 		console.log(folderObject);
+
+		return false
 	})
 
 	$("#menuButton").click(function(){
@@ -177,6 +182,30 @@ $(document).ready(function(){
 		$(this).addClass("selected");
 
 		tabNavigation();
+
+		return false;
+	})
+
+	$("#tunesByKey").click(function(){
+		current="tunes";
+		$(".vj__nav-link.selected").removeClass("selected");
+		$("#navTunes").addClass("selected");
+		tabNavigation();
+		return false;
+	})
+	$("#tunesAlphabetically").click(function(){
+		current="alphabetical";
+		$(".vj__nav-link.selected").removeClass("selected");
+		$("#navAlphabetical").addClass("selected");
+		tabNavigation();
+		return false;
+	})
+	$("#tunesSaved").click(function(){
+		current="binder";
+		$(".vj__nav-link.selected").removeClass("selected");
+		$("#navBinder").addClass("selected");
+		tabNavigation();
+		return false;
 	})
 
 	function tabNavigation(){
@@ -186,12 +215,28 @@ $(document).ready(function(){
 			$(".vj__featured-box__column-right").removeClass("hide");
 			$(".vj__featured-box").addClass("hide");
 			$(".vj__featured-box__column-right").removeClass("showSaved")
+			$("#alphabeticalList").removeClass("show");
+			$("#tuneList").addClass("show")
 		} else if (current == "video"){
 			$(".vj__featured-box__column-right").addClass("hide");
 			$(".vj__featured-box").removeClass("hide");
-			$(".vj__featured-box__column-right").removeClass("showSaved")
-		} else if (current == "about"){
+			$(".vj__featured-box__column-right").removeClass("showSaved");
+			$("#alphabeticalList").removeClass("show");
+		} else if (current == "binder"){
 			$(".vj__featured-box__column-right").addClass("showSaved")
+			$(".vj__featured-box__column-right").removeClass("hide");
+			$(".vj__featured-box").addClass("hide");
+			$("#alphabeticalList").removeClass("show");
+			$("#tuneList").addClass("show")
+		} else if (current == "alphabetical"){
+			/*
+			$(".vj__featured-box__column-right").addClass("hide");
+			$(".vj__featured-box").addClass("hide");
+			*/
+			$(".vj__featured-box__column-right").removeClass("hide");
+			$(".vj__featured-box__column-right").removeClass("showSaved")
+			$("#tuneList").removeClass("show")
+			$("#alphabeticalList").addClass("show");
 		}
 	}
 });

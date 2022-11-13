@@ -50,6 +50,8 @@
 		}
 	}
 
+
+
 	.vj__key-group {
 		.vj__kicker {
 			background-color: #900;
@@ -152,6 +154,7 @@
 		background-color: #FFF;
 		height: 100%;
 		//height: calc(100% - 20px);
+		padding-bottom: 80px;
 		position: absolute;
 			right: 0%;
 		transition: right .5s;
@@ -178,6 +181,22 @@
 		.vj__grid__full {
 			border-left: 1px solid #CCC;
 			position: relative;
+		}
+	}
+
+	.vj__tune-list__a-z {
+		display: none;
+
+		&.show {
+			display: block;
+		}
+	}
+
+	#tuneList {
+		display: none;
+
+		&.show {
+			display: block;
 		}
 	}
 
@@ -421,21 +440,22 @@
 		position: fixed;
 		bottom: 0;
 		width: 100%;
+		z-index: 100;
 
 		a {
 			border-right:1px solid #CCC;
 			color: #888;
 			display: inline-block;
-			font-size: 14px;
+			font-size: 10px;
 			padding: 40px 20px 20px 20px;
 			text-align: center;
 			text-decoration: none;
 			text-transform: uppercase;
-			width: 33.5%;
+			width: 25%;//33.5%;
 
 			&:last-of-type {
 				border-right: none;
-				width: 33%;
+				width: 25%;//33%;
 			}
 			&.selected {
 				background-color: #F1F1F1;
