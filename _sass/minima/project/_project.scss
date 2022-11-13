@@ -67,7 +67,7 @@
 		}
 
 		a.vj__add-tune {
-			background-image: url(../img/icons_plus.png);
+			background-image: url(../img/icon_add.png);
 			background-repeat: no-repeat;
 			background-size: 30px 30px;
 			background-position: right 10px center;
@@ -77,6 +77,10 @@
 			padding: 15px 40px 5px 20px;
 			text-decoration: none;
 			width: 100%; 
+
+			&:hover {
+				background-image: url(../img/icon_add-hover.png);
+			}
 
 			&:first-of-type {
 				border-top: none;
@@ -93,6 +97,10 @@
 
 			&.added {
 				color: #900;
+				background-image: url(../img/icon_added.png);
+				&:hover {
+					background-image: url(../img/icon_remove.png);
+				}
 			}
 		}
 
