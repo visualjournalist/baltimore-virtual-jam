@@ -1,3 +1,4 @@
+
 // Put project-specific CSS here.
 
 .vj__project {
@@ -31,6 +32,14 @@
 	}
 
 	.vj__featured-box__column-right.showSaved {
+		.vj__binder-explanation {
+			background-color: #CCC; 
+			display: block;
+			font-family: Arial, sans-serif; 
+			margin: 0;
+			padding: 20px 20px 20px 20px; 
+		}
+
 		.vj__key-group {
 			ul {
 				display: none;
@@ -189,6 +198,10 @@
 		.vj__grid__full {
 			border-left: 1px solid #CCC;
 			position: relative;
+		}
+
+		.vj__binder-explanation {
+			display: none;
 		}
 	}
 

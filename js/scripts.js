@@ -120,20 +120,24 @@ $(document).ready(function(){
 
 
 	function updateTunesInBinder(){
+		console.log("\n\n-----------------\n\nupdateTunesInBinder()");
+
+		$(".vj__add-tune.added").removeClass("added");
+		$("ul.show").removeClass("show");
 
 		// Fold the corners on saved cards (from localStorage)
 		for( tune in folderObject){
 			var tuneNameSimplified = folderObject[tune].name;
-			console.log("tuneNameSimplified");
-			console.log(tuneNameSimplified)
+			console.log("\ntune name: " + tuneNameSimplified);
 			tuneNameSimplified = tuneNameSimplified.replaceAll(" ", "");
 			tuneNameSimplified = tuneNameSimplified.replaceAll(".", "")
 			tuneNameSimplified = tuneNameSimplified.replaceAll("'", "")
 			tuneNameSimplified = tuneNameSimplified.replaceAll("(", "")
 			tuneNameSimplified = tuneNameSimplified.replaceAll(")", "")
 			tuneNameSimplified = tuneNameSimplified + folderObject[tune].key;
-			console.log(tuneNameSimplified);
+			console.log("tuneNameSimplified: " + tuneNameSimplified);
 			var tuneNameSimplifiedAlphabetical = tuneNameSimplified + "alphabetical";
+			console.log("tuneNameSimplifiedAlphabetical: " + tuneNameSimplifiedAlphabetical);
 
 			$("#" + tuneNameSimplified ).addClass("added");
 			$("#" + tuneNameSimplifiedAlphabetical ).addClass("added");
@@ -147,6 +151,8 @@ $(document).ready(function(){
 	$(".vj__add-tune").click(function(){
 		trackTitle = $(this).data("tune");
 		key = $(this).data("key");
+
+		console.log("\n\nCLICKED TO ADD/DELETE TUNE---------------\n\n")
 
 		if($(this).hasClass("added")){
 			//$(this).removeClass("added");
