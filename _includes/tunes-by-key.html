@@ -8,6 +8,9 @@
 {% assign baltimore = site.data.baltimore.english %}
 {% assign balt = baltimore[0] %}
 
+{% assign includeJamTest = baltimore[1] %}
+
+
 {% assign key = include.key | default: 'A' %}
 
 <div id="{{ key }}" class="vj__key-group">	
@@ -24,13 +27,12 @@
 							| remove: "'" }}{{ tune.KEY }}" class="vj__add-tune" data-tune="{{ tune.SONG }}" data-key="{{ tune.KEY }}">{{ tune.SONG }}</a>
 			<ul>
 				{% for test in balt %}
-
 					{% if tune[test[0]] != "" %}
 						{% assign jamDate = test[0] %}
 						{% if jamDate != "KEY" and jamDate != "SONG" %}
 							{% assign youtube = tune[jamDate] %}
 							{% if youtube contains '://' %}
-								<li><a href='{{ tune[jamDate] }}' class="tune" title="{{ tune.SONG }}" data-key="{{ tune.KEY }}" data-date="{{ jamDate }}">{{ jamDate }}</a> </li>
+								<li><a href='{{ tune[jamDate] }}' class="tune {% if includeJamTest[jamDate] %}internal{% endif %}" title="{{ tune.SONG }}" data-key="{{ tune.KEY }}" data-date="{{ jamDate }}">{{ jamDate }} {% if includeJamTest[jamDate] %} {% else %}— (external) {% endif %}</a> </li>
 							{% endif %}
 						{% endif %}
 					{% endif %}

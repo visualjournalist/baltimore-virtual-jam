@@ -62,60 +62,63 @@ $(document).ready(function(){
 
 	$("a.tune").click(function(){
 		console.log($(this).attr("href"));
+		if ($(this).hasClass("internal")){
 
-		var trackTitle = $(this).attr("title");
-		var jamDate = $(this).data("date");
+			var trackTitle = $(this).attr("title");
+			var jamDate = $(this).data("date");
 
-		var url = $(this).attr("href");
+			var url = $(this).attr("href");
 
-		var tune = url.split("v=");
-		tune = tune[1];
-		tune = tune.split("&t=");
-		var timecode = tune[1];
+			var tune = url.split("v=");
+			tune = tune[1];
+			tune = tune.split("&t=");
+			var timecode = tune[1];
 
-		tune = tune[0];
+			tune = tune[0];
 
-		videoUrl = "https://www.youtube.com/embed/" + tune + "?start=" + timecode;// + "s";
+			videoUrl = "https://www.youtube.com/embed/" + tune + "?start=" + timecode;// + "s";
 
-		console.log(trackTitle);
-		console.log(videoUrl);
+			console.log(trackTitle);
+			console.log(videoUrl);
 
-		$("#jamVideo").attr("src", videoUrl)
-		$("#trackTitle").text(trackTitle)
-		$("#jamDate").text(jamDate)
-		console.log("jamDate: " + jamDate)
+			$("#jamVideo").attr("src", videoUrl)
+			$("#trackTitle").text(trackTitle)
+			$("#jamDate").text(jamDate)
+			console.log("jamDate: " + jamDate)
 
 
-		$(".vj__featured-box__column-right").addClass("hide");
-		$(".vj__featured-box").removeClass("hide");
+			$(".vj__featured-box__column-right").addClass("hide");
+			$(".vj__featured-box").removeClass("hide");
 
-		if (chords[trackTitle]){
-			console.log("chords!")
-			console.log(chords[trackTitle].chords);
+			if (chords[trackTitle]){
+				console.log("chords!")
+				console.log(chords[trackTitle].chords);
 
-			var chordsPretty = chords[trackTitle].chords;
-			chordsPretty = chordsPretty.replaceAll("|", "<span style='color: #CCC;'>|</span>")
+				var chordsPretty = chords[trackTitle].chords;
+				chordsPretty = chordsPretty.replaceAll("|", "<span style='color: #CCC;'>|</span>")
 
-			$("#summary").html(chordsPretty)
-			$("#summary").addClass("chords")
-		} else {
-			console.log('no chords')
-			$("#summary").html("")
+				$("#summary").html(chordsPretty)
+				$("#summary").addClass("chords")
+			} else {
+				console.log('no chords')
+				$("#summary").html("")
+			}
+
+			$("a.tune").removeClass("selected");
+			$(this).addClass("selected");
+
+
+			$(".vj__featured-box__column-right").addClass("hide");
+			$(".vj__featured-box").removeClass("hide");
+			$(".vj__nav-link.selected").removeClass("selected");
+			$("#navVideo").addClass("selected");
+
+
+
+
+			return false;
 		}
 
-		$("a.tune").removeClass("selected");
-		$(this).addClass("selected");
-
-
-		$(".vj__featured-box__column-right").addClass("hide");
-		$(".vj__featured-box").removeClass("hide");
-		$(".vj__nav-link.selected").removeClass("selected");
-		$("#navVideo").addClass("selected");
-
-
-
-
-		return false;
 	})
 
 
@@ -253,16 +256,5 @@ $(document).ready(function(){
 		}
 	}
 });
-
-
-
-
-
-
-
-
-
-//------------------------------
-
 
 
