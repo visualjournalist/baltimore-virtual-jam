@@ -128,24 +128,34 @@ $(document).ready(function(){
 		$(".vj__add-tune.added").removeClass("added");
 		$("ul.show").removeClass("show");
 
+		var countTunes = 0;
+
 		// Fold the corners on saved cards (from localStorage)
 		for( tune in folderObject){
+			countTunes++;
 			var tuneNameSimplified = folderObject[tune].name;
-			console.log("\ntune name: " + tuneNameSimplified);
+			//console.log("\ntune name: " + tuneNameSimplified);
 			tuneNameSimplified = tuneNameSimplified.replaceAll(" ", "");
 			tuneNameSimplified = tuneNameSimplified.replaceAll(".", "")
 			tuneNameSimplified = tuneNameSimplified.replaceAll("'", "")
 			tuneNameSimplified = tuneNameSimplified.replaceAll("(", "")
 			tuneNameSimplified = tuneNameSimplified.replaceAll(")", "")
 			tuneNameSimplified = tuneNameSimplified + folderObject[tune].key;
-			console.log("tuneNameSimplified: " + tuneNameSimplified);
+			//console.log("tuneNameSimplified: " + tuneNameSimplified);
 			var tuneNameSimplifiedAlphabetical = tuneNameSimplified + "alphabetical";
-			console.log("tuneNameSimplifiedAlphabetical: " + tuneNameSimplifiedAlphabetical);
+			//console.log("tuneNameSimplifiedAlphabetical: " + tuneNameSimplifiedAlphabetical);
 
 			$("#" + tuneNameSimplified ).addClass("added");
 			$("#" + tuneNameSimplifiedAlphabetical ).addClass("added");
 
 			$("#" + tuneNameSimplified ).next("ul").addClass("show");
+		}
+
+		console.log("How many tunes?" + countTunes);
+		if (countTunes > 0){
+			$("#tuneCounter").text("(" + countTunes + ")");
+		} else {
+			$("#tuneCounter").text("");
 		}
 	}
 	updateTunesInBinder();
@@ -161,7 +171,7 @@ $(document).ready(function(){
 			//$(this).removeClass("added");
 			//$(this).next("ul").removeClass("show");
 			logger("Trying to delete: " + trackTitle);
-			delete folderObject[trackTitle];
+			delete folderObject[trackTitle];//
 		} else {
 			//$(this).addClass("added");
 			//$(this).next("ul").addClass("show");
