@@ -12,7 +12,7 @@
 	<div style="padding-top: 60px;">
 		{% assign firstLetter = "z" %}
 		{% assign previousFirstLetter= "x" %}
-		{% for tune in baltimore offset: 1%}
+		{% for tune in baltimore offset: 2%}
 			{% assign firstLetter = tune.SONG | slice: 0 %}
 			{% if firstLetter != previousFirstLetter %}
 				<h3 style="margin-top: 40px; color: #900;">{{ firstLetter }}</h3>
